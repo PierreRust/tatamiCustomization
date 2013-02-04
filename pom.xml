@@ -1,0 +1,81 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>fr.ippon.tatami</groupId>
+    <artifactId>tatamiCustomization</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <description>TatamiCuztomization is a template project to help customizing tatami
+        (an enterprise micro-blogging platform, see https://github.com/ippontech/tatami)
+        for your company
+    </description>
+    <inceptionYear>2013</inceptionYear>
+    <url>https://github.com/PierreRust/tatamiCustomization</url>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <properties>
+        <!-- Configuration -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.6</java.version>
+
+        <tatami.version>2.0.0.beta.1</tatami.version>
+
+        <jetty.port>8080</jetty.port>
+        <jetty.scanIntervalSeconds>2</jetty.scanIntervalSeconds>
+
+        <!-- Maven plugins -->
+        <maven.compiler.version>3.0</maven.compiler.version>
+        <maven.war.version>2.3</maven.war.version>
+        <maven.jetty.version>8.1.8.v20121106</maven.jetty.version>
+
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>fr.ippon.tatami</groupId>
+            <artifactId>tatami</artifactId>
+            <version>${tatami.version}</version>
+            <type>war</type>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven.war.version}</version>
+                <configuration>
+                    <overlays>
+                        <includes>META-INF/**/*</includes>
+                    </overlays>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${maven.jetty.version}</version>
+                <configuration>
+                    <scanIntervalSeconds>${jetty.scanIntervalSeconds}</scanIntervalSeconds>
+                    <stopKey>stop-jetty</stopKey>
+                    <stopPort>9999</stopPort>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>jetty.port</name>
+                            <value>${jetty.port}</value>
+                        </systemProperty>
+                    </systemProperties>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project> 
