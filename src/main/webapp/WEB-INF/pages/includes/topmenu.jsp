@@ -136,14 +136,18 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/tatami/presentation">
-                                    <i class="icon-eye-closed"></i>new item in customization
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/tatami/tos">
                                     <i class="icon-briefcase"></i> <fmt:message
                                         key="tatami.menu.tos"/>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="/tatami/customization">
+                                    <i class="icon-eye-close"></i> Customization
+                                </a>
+                                <a href="https://github.com/PierreRust/tatamiCustomization">
+                                    <i class="icon-eye-close"></i> tatamiCustomization on github
                                 </a>
                             </li>
                             <li class="divider"></li>
